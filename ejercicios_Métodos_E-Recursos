@@ -1,0 +1,266 @@
+
+
+
+package metodosverano;
+import java.util.Scanner;
+
+public class metodosverano {
+static Scanner sc=new Scanner(System.in);
+static int resultado;
+static int result=0;
+static int factorial=6;
+static String palabra="holamundo";
+static int valorfijo;
+static int valorcontador;
+static double valor2;
+static double factorial2;
+static int sumacatetos;
+static double hipotenusa;
+static int suma;
+static int resta;
+static double multiplicacion;
+static double division;
+static double raiz;
+static double raiz2;
+static int resto;
+static double potencia;
+static int numeroprimer;
+static int numerosegun;
+static int totalsuma284;
+static int totalsuma220;
+	public static void  mostrarTablaMultiplicar(int x,int y) {
+		/*Escribir el método mostrarTablaMultiplicar y que muestre por pantalla la tabla de multiplicar del número recibido como parámetro.  Escribir un programa que pruebe la función.*/
+
+
+		for (int i=0;i<=y;i++) {
+			resultado=x*i;
+			System.out.println(x+" * "+i+" = "+resultado);
+		}
+	}
+	public static boolean esDigito(String letra) {
+	/*Escribir una función llamada EsDigito que devuelva un valor lógico o booleano que determine si un carácter es uno de los dígitos del  0 al 9.  Escribir un programa que pruebe la función.*/
+			result=palabra.indexOf(letra);
+			if ((result>=0)&(result<=9)) {
+				return true;
+			}
+			return false;
+	}
+	public static int calcFactorial(int num1) {
+		for (int i=num1-1;i>0;i--){
+			factorial=factorial*i;
+			
+		}
+		return factorial;
+	}
+	
+	public static double calculoCombinaciones(int valorfijo,int valorcontador ) {
+		/*5- Construya una función que calcule el valor del número e hasta una precisión N según la siguiente expresión:
+		 * 
+		e = 1+ 1/1 + 1/2 + 1/3 ... + 1/N
+*/
+		for(int i=1;i<=valorcontador;i++) {
+			factorial2=factorial2*i;
+			valor2=valor2+valorfijo/factorial2;
+		}
+		return valor2;
+	}
+	public static double hipotenusa(int cateto1,int cateto2) {
+		/*Defina un método llamado hipotenusa que calcule la longitud de la hipotenusa de un triángulo rectángulo, cuando se proporcionen dos números reales con longitudes de los otros dos lados. Utilizar el paquete Math.*/
+		sumacatetos=cateto1+cateto2;
+		hipotenusa=Math.sqrt(sumacatetos);
+	
+	return hipotenusa;
+	}
+	public static void suma(int numero1,int numero2) {
+		/*Escribir un programa con diseño modular que introduce por teclado dos números enteros y presenta un menú con una serie de opciones correspondientes a operaciones aritméticas a realizar con los mismos (suma, resta, multiplicación, división y división ). En función a la opción elegida se llama a la función correspondiente que retorna el resultado de dicha operación para que la visualice el programa principal. Una vez realizada la primera operación se le pregunta al usuario si quiere seguir realizando mas operaciones. En caso afirmativo se le volverá a visualizar el menú con las operaciones y en caso negativo se finalizará el programa.*/  
+		suma=numero1+numero2;
+		System.out.println("El resultado es= "+suma);
+	}
+	public static void resta(int numero1,int numero2) {
+		if(numero1>numero2) {
+		resta=numero1-numero2;
+		System.out.println("El resultado es= "+resta);
+		}
+		else {
+			System.out.println("La resta da un número negativo");
+		}
+	}
+		
+	public static double multiplicar(int numero1,int numero2) {
+		multiplicacion=numero1*numero2;
+		return multiplicacion;
+		}
+	public static double dividir(int numero1,int numero2) {
+		division=numero1/numero2;
+		return division;
+	}
+	public static void raizCuadrada(int numero1,int numero2) {
+		raiz=Math.sqrt(numero1);
+		raiz2=Math.sqrt(numero2);
+		System.out.println("La raices cuadradas de los dos números son= "+raiz+raiz2);
+	}
+	public static int restoDivision(int numero1,int numero2) {
+		resto=numero1%numero2;
+		return resto;
+	}
+	public static double potencia(int numero1,int numero2) {
+		potencia=Math.pow(numero1, numero2);
+		return potencia;
+	}
+	public static void numerosAmigo(int numeroprimer,int numerosegun) {
+		/*Dos números son amigos si cada uno de ellos es igual a la suma de los divisores del otro ( no consideramos divisor el propio número). Como por ejemplo el 220 y el 284 (que son amigos):
+284 => divisores 1 + 2 + 4 + 71 + 142 = 220
+220 => divisores 1 + 2 + 4 + 5 + 10 + 11 + 20 + 22 + 44  + 55 + 110 = 284
+Diseñar un programa modular que dados dos números introducidos por teclado y me muestre mediante un mensaje si los dos número son amigos.  Realizar un método auxiliar que calcule la suma de divisores.
+*/
+		for(int i=1;i<=numerosegun;i++) {
+			if((numeroprimer%i)==0) {
+				totalsuma284=i;
+				System.out.println("divisores para suma de 220= "+totalsuma284);
+			}
+		}
+		System.out.println("_____________ ");
+		for (int i=1;i<=numeroprimer;i++) {
+			if((numerosegun%i)==0) {
+				totalsuma220=i;
+				System.out.println("divisores para suma de 284= "+totalsuma220);
+			}
+		}
+	}
+	public static void generarHTMLtable(int columnas,int filas,String contenido) {
+		System.out.println("<html>");
+		System.out.println("<body>");
+		System.out.println("<table border=1>");
+		for(int i=1;i<=columnas;i++) {
+		System.out.println("<tr>");
+			for(int x=1;x<=filas;x++) {
+		System.out.println("<td>"+contenido+"</td>");
+			}
+			System.out.println("</tr>");
+		}
+		System.out.println("</table>");
+		System.out.println("</body>");
+		System.out.println("</html>");
+	}
+	public static void main(String[] args) {
+		
+		int y=10;
+		System.out.println("El ejercicio 1 es la tabla de multiplicar");
+		System.out.println("Introduce un número para iniciar la tabla de multiplicar");
+		int x=sc.nextInt();
+			System.out.println("TABLA DE MULTIPLICAR DE "+x);
+			System.out.println("---------------------------");
+		metodosverano.mostrarTablaMultiplicar(x, y);
+		System.out.println("************************FIN***************************");
+		System.out.println(" ");
+		System.out.println("El ejercicio 2 es buscar si un caracter está dentro de una cadena de caracteres y decir la posición, y si esa posición esta comprendida entre 0 y 9");
+		System.out.println("La cadena de caracteres es "+palabra);
+		System.out.println("Introduce un caracter");
+		String letra=sc.next();
+		System.out.println("El resultado es "+metodosverano.esDigito(letra));
+		System.out.println("************************FIN***************************");
+		System.out.println(" ");
+		System.out.println("El ejercicio 3 nos pide el factorial de un número");
+		System.out.println("Introduce un número para calcular el factorial");
+		int num1=sc.nextInt();
+		System.out.println("El factorial sería= "+metodosverano.calcFactorial(num1));
+		System.out.println("************************FIN***************************");
+		System.out.println(" ");
+		System.out.println("El ejercicio 5 nos pide la siguiente fórmula: e = 1+ 1/1! + 1/2! + 1/3! ... + 1/N!");
+		int valorfijo=1;
+		int valorcontador=10;
+		System.out.println("El resultado de la fórmula: e = 1+ 1/1 + 1/2 + 1/3 ... + 1/N es= "+metodosverano.calculoCombinaciones(valorfijo, valorcontador));
+		System.out.println("************************FIN***************************");
+		System.out.println(" ");
+		System.out.println("El ejercicio 6 nos pide calcular la hipotenusa de un triángulo");
+		System.out.println("cuyos catetos son 4 y 8");
+		int cateto1=4;
+		int cateto2=8;
+		System.out.println("El resultado es= "+metodosverano.hipotenusa(cateto1, cateto2));
+		System.out.println("************************FIN***************************");
+		System.out.println(" ");
+		System.out.println("El ejercicio 7 es de operaciones aritméticas");
+		System.out.println("Introduce un número para operar");
+		int numero1=sc.nextInt();
+		System.out.println("Introduce otro número parar operar");
+		int numero2=sc.nextInt();
+		System.out.println("BIENVENIDO A LA CALCULADORA DE JAVA");
+		System.out.println("Elige una de las opciones siguientes para operar:");
+		System.out.println("1. Realizar una suma");
+		System.out.println("2.Realizar una resta");
+		System.out.println("3.Realizar una multiplicación");
+		System.out.println("4.Realizar una división");
+		System.out.println("5.Realizar la raíz cuadrada");
+		System.out.println("6.Calcular el resto de una división");
+		System.out.println("7.Calcular la potencia al cuadrado del primer número elevado al segundo");
+		int menu;
+		int veces=0;
+		
+		while (veces!=4) {
+		System.out.println("Elige una opción");
+		menu=sc.nextInt();
+		
+		switch (menu) {
+		case 1: 
+				System.out.println("Has elegido la suma de los dos operadores");
+				metodosverano.suma(numero1, numero2);
+				veces++;
+				break;
+		case 2:
+				System.out.println("Has elegido la resta de los dos operadores");
+				metodosverano.resta(numero1, numero2);
+				veces++;
+				break;
+		case 3:
+				System.out.println("Has elegido la multiplicación de los dos operadores");
+				System.out.println("El resultado es= "+metodosverano.multiplicar(numero1, numero2));
+				veces++;
+				break;
+		case 4:
+				System.out.println("Has elegido la división de los dos operadores");
+				System.out.println("El resultado es= "+metodosverano.dividir(numero1, numero2));
+				veces++;
+				break;
+		case 5:
+				System.out.println("Has elegido la raíz cuadrada de los dos operadores");
+				metodosverano.raizCuadrada(numero1, numero2);
+				veces++;
+				break;
+		case 6:
+				System.out.println("Has elegido el resto de la división de los dos operadores");
+				System.out.println("El resultado es= "+metodosverano.restoDivision(numero1, numero2));
+				veces++;
+				break;
+		case 7:
+				System.out.println("Has elegido la potencia del número primero elevado al segundo");
+				System.out.println("El resultado es= "+metodosverano.potencia(numero1, numero2));
+				System.out.println(" ");
+				veces++;
+			default:
+				System.out.println("La opción que has elegido no está registrada,vuelve a intentarlo");
+				System.out.println(" ");
+				System.out.println("************************FIN***************************");
+				veces++;
+		}
+	}
+		System.out.println("************************FIN***************************");
+		System.out.println(" ");
+		System.out.println("Ejercicio 8: dos números son amigos si la suma de sus divisores es igual al otro número");
+		int numeroprimer=284;
+		int numerosegun=220;
+		metodosverano.numerosAmigo(numeroprimer,numerosegun);
+		System.out.println("************************FIN***************************");
+		System.out.println(" ");
+		System.out.println("Ejercicio 9: Hacer un documento html en formato tabla");
+		System.out.println("Introduce el número de columnas");
+		String contenido="Hola Mundo";
+		int columnas=sc.nextInt();
+		System.out.println("Introduce el número de filas");
+		int filas=sc.nextInt();
+		metodosverano.generarHTMLtable(columnas, filas, contenido);
+		System.out.println("************************FIN***************************");
+	}
+	
+}
+		
+
