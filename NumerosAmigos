@@ -1,0 +1,72 @@
+/* 8.- Dos números son amigos si cada uno de ellos es igual a la suma de los divisores del otro ( no consideramos divisor el propio número). Como por ejemplo el 220 y el 284 (que son amigos):
+284 => divisores 1 + 2 + 4 + 71 + 142 = 220
+220 => divisores 1 + 2 + 4 + 5 + 10 + 11 + 20 + 22 + 44  + 55 + 110 = 284
+Diseñar un programa modular que dados dos números introducidos por teclado y me muestre mediante un mensaje si los dos número son amigos.  Realizar un método auxiliar que calcule la suma de divisores.
+Mostrar los resultados de los divisores de cada número en listas.
+*/
+package ejerciciosdemetodos;
+
+import java.util.ArrayList;
+
+public class numerosAmigos {
+	static int suma1;
+	static int suma2;
+	static ArrayList divisoresNum1;
+	static ArrayList divisoresNum2;
+	
+	//Búsqueda de divisores del primer número
+	public static ArrayList divisores(int num1,ArrayList divisoresNum1) {
+		System.out.println("El número primero es "+num1);
+		for(int i=1;i<num1;i++) {
+			if(num1%i==0) {
+				divisoresNum1.add(i);
+				suma1+=i;
+			}
+		}
+		return divisoresNum1;
+	}
+	//Búsqueda de divisores del segundo número
+	public static ArrayList divisores2(int num2,ArrayList divisoresNum2) {
+		System.out.println("El número segundo es "+num2);
+		for(int i=1;i<num2;i++) {
+			
+			if(num2%i==0) {
+			divisoresNum2.add(i);	
+			suma2+=i;
+			}
+		}
+		return divisoresNum2;
+	}
+	//Comparación de sumas.
+	/*
+		Ejemplo: si se usaran estos valores el programa mostraría que son amigos
+		int num1=284;
+		int num2=220;*/
+	public static void compararSumas(int suma1,int suma2,int num1,int num2) {
+		if((suma1==num2)&(suma2==num1)) {
+			System.out.println("Los números son amigos");
+		}else {
+			System.out.println("Los números no son amigos");
+		}
+	}
+	public static void main(String[] args) {
+		
+		
+		int num1=(int) (Math.random()*300);
+		int num2=(int) (Math.random()*300);
+		ArrayList<Integer>divisoresNum1=new ArrayList <Integer>();
+		ArrayList<Integer> divisoresNum2=new ArrayList<Integer>();
+		System.out.print("Total de divisores del primer número: "+numerosAmigos.divisores(num1, divisoresNum1));
+		
+		System.out.println();
+		System.out.println("Suma de divisores del primer número aleatorio: "+suma1);
+		System.out.println();
+		System.out.print("Total de divisores del segundo número: "+numerosAmigos.divisores2(num2, divisoresNum2));
+		
+		System.out.println();
+		System.out.println("Suma de divisores del segundo número aleatorio: "+suma2);
+		
+		numerosAmigos.compararSumas(suma1,suma2,num1, num2);
+	}
+
+}
